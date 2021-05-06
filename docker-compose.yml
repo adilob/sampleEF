@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-CU10-ubuntu-20.04
+    ports:
+      - "1433:1433"
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=cJ3"fC7>oN3;iN4>
+      - MSSQL_PID=Express
+  dotnet:
+    image: mcr.microsoft.com/dotnet/sdk:3.1
+    volumes:
+      - .:/home/app
+    depends_on: 
+      - mssql
+    environment:
+      - MSSQL_HOST=mssql
+      - MSSQL_PORT=1433
+    tty: true
+
