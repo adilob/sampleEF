@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\sampleEF.data\sampleEF.data.csproj" />
+    <ProjectReference Include="..\sampleEF.domain\sampleEF.domain.csproj" />
   </ItemGroup>
 
 </Project>

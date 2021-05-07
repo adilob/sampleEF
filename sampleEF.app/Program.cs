@@ -1,6 +1,7 @@
 ﻿using System;
 using sampleEF.app;
 using sampleEF.data.Models;
+using sampleEF.domain.Factories;
 
 namespace sampleEF.app
 {
@@ -15,10 +16,12 @@ namespace sampleEF.app
       CreateNewPersonDbFirst();
     }
 
-    private static void CreateNewPersonDbFirst() {
-      using (var db = new testdbContext()) 
+    private static void CreateNewPersonDbFirst()
+    {
+      using (var db = new testdbContext())
       {
-        db.Add(new PersonDbFirst {
+        db.Add(new PersonDbFirst
+        {
           FirstName = "Adilo",
           LastName = "Bertoncello",
           Phone = "+5551980659965"

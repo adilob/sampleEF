@@ -55,7 +55,7 @@ namespace sampleEF.app
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
         builder.DataSource = "mssql";
-        builder.UserID = "sa"; // just a test. In a real world you should avoid use this sa user
+        builder.UserID = "sa"; // just a test. In a real world you should avoid use this 'sa' user
         builder.Password = "cJ3\"fC7>oN3;iN4>";
         builder.InitialCatalog = database;
 
