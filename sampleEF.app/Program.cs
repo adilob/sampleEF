@@ -1,5 +1,6 @@
 ﻿using System;
 using sampleEF.app;
+using sampleEF.data.Models;
 
 namespace sampleEF.app
 {
@@ -7,9 +8,24 @@ namespace sampleEF.app
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
-      CreatePersonDbFirstTable c = new CreatePersonDbFirstTable();
-      c.Test();
+      var c = new CreatePersonDbFirstTable();
+      c.CreateDb("testdb");
+      c.CreatePersonDbFirstTableOnDb("testdb");
+
+      CreateNewPersonDbFirst();
+    }
+
+    private static void CreateNewPersonDbFirst() {
+      using (var db = new testdbContext()) 
+      {
+        db.Add(new PersonDbFirst {
+          FirstName = "Adilo",
+          LastName = "Bertoncello",
+          Phone = "+5551980659965"
+        });
+
+        db.SaveChanges();
+      }
     }
   }
 }
